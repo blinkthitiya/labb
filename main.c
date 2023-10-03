@@ -1,32 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-int main ()
+int main()
 {
-    int a,b,c,min, max;
-    printf("input 3 numbers: ");
-    scanf("%d,%d,%d",&a,&b,&c);
+    int a,b,c;
+    float x1,x2;
 
-    if(a<=b && a<=c) min=a;
-    else if(b<=c) min=b;
-    else min=c;
-    printf("the minimum value is %d\n",min);
+    printf("enter your coefficients: ");
+    scanf("%d %d %d",&a,&b,&c);
+    puts("roots of the equation");
 
-    /*if([6]) max=a
-    else if([7] max=b
-    else max=c*/
+    //1. term a
+    //x^2
+    switch(a) {
+        case 1: printf("x^2"); break;
+        case 0: break;
+        case -1: printf("-x^2"); break;
+        default: printf("%dx^2",a);
+    }
 
-    /*if (a<=b && a<=c) min=a
-    if (b<=c && b<=a) min=b
-    if (c<=b && c<=a) min=c*/
+    //2. + sign between a and b
+    if(b>0) printf("+");
 
-    if (a>=b && a>=c) max=a;
-    else if(b>=c) max=b;
-    else max=c;
-    printf("the maximum value is %d\n",max);
+    //3. term b
+    switch(b) {
+        case 1: printf("x"); break;
+        case 0: break;
+        case -1: printf("-x"); break;
+        default: printf("%dx",b);
+    }
+
+    //4. + sign between b and c
+    if(c>0) printf("+");
+
+    //5. term c
+    printf("%d=0",c);
+
+    //printf("%dx^2+%dx+%d=0",a,b,c)
+
+    x1=(-b+sqrt(b*b-4*a*c))/(2*a);
+    x2=(-b-sqrt(b*b-4*a*c))/(2*a);
+
 
     return 0;
 }
-
-
